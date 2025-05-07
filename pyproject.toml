@@ -1,0 +1,20 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "git-storyteller"
+version = "0.0.1"
+description = "Local AI-powered Git story map"
+authors = [{name = "Your Name"}]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "gitpython",
+    "fastapi",
+    "uvicorn[standard]",
+    "typer",
+    "rich",
+    "httpx",          # for FastAPI TestClient
+]
