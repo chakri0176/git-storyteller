@@ -244,3 +244,4 @@ Werkzeug==2.2.3
 widgetsnbextension==2.0.0
 wrapt==1.14.1
 zipp==1.0.0
+tree-sitter-python
