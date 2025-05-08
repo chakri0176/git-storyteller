@@ -11,7 +11,8 @@ jobs:
           python-version: '3.10'
       - run: |
           # Configure Git to use the GITHUB_TOKEN for authentication
-          git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"          python -m pip install --upgrade pip
+          git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
           pytest -q
         env:
