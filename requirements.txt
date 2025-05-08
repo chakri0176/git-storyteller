@@ -22,7 +22,7 @@ certifi==2024.2.2
 chardet==4.0.0
 charset-normalizer==3.3.2
 ciso8601==2.3.2
-cliapp==1.20180812.1
+cliapp==1.0.9
 click==8.1.7
 click-plugins==1.1.1
 cligj==0.7.2
