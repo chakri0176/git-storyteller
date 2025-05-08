@@ -13,3 +13,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pytest -q
+        env:
+          GIT_TERMINAL_PROMPT: 0
+          GIT_ASKPASS: /bin/true
+          # Use the GITHUB_TOKEN for authentication
+          GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          git config --global url."https://${GIT_TOKEN}@github.com/".insteadOf "https://github.com/"
+          python -m pip install git+https://github.com/chakri0176/git-storyteller@490c35a3e9108328db3fabf1bf0b6758a13028c2#egg=git_storyteller
