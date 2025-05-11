@@ -10,6 +10,9 @@ def test_ast_diff():
     with tempfile.TemporaryDirectory() as tdir:
         os.chdir(tdir)
         subprocess.run(["git","init","-q"])
+        # Configure Git user identity
+        subprocess.run(["git", "config", "user.name", "chakri0176"])
+        subprocess.run(["git", "config", "user.email", "chakravarthi.b76@outlook.com"])
         #commit A
         (Path(tdir)/"demo.js").write_text("function foo() {}")
         subprocess.run(["git","add","demo.js"])
