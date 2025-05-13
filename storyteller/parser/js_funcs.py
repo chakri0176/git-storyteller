@@ -17,7 +17,7 @@ def extract_function_names(source: bytes)->list[str]:
         if node.type == "function_declaration":
             ident = next((c for c in node.children if c.type == "identifier"), None)
             if ident:
-                names.append(source[ident.start_byte : ident.end_byte].decode())
+                names.append(source[ident.start_byte : ident.end_byte].decode().strip())
 
         # 2️⃣  class / object methods  (method_definition)
         elif node.type == "method_definition":
@@ -35,7 +35,7 @@ def extract_function_names(source: bytes)->list[str]:
                 None,
             )
             if ident:
-                names.append(source[ident.start_byte : ident.end_byte].decode())
+                names.append(source[ident.start_byte : ident.end_byte].decode().strip())
 
         # 3️⃣  variable assignments whose initializer is a function / arrow function
         elif node.type == "variable_declarator":
@@ -52,7 +52,7 @@ def extract_function_names(source: bytes)->list[str]:
                     "async_function"
                 )
             ):
-                names.append(source[ident.start_byte : ident.end_byte].decode())
+                names.append(source[ident.start_byte : ident.end_byte].decode().strip())
 
         # recurse
         for child in node.children:

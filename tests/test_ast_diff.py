@@ -31,5 +31,9 @@ def test_ast_diff():
         }
         r = client.post("/diff/ast",json = req_json)
         assert r.status_code == 200
-        assert r.json() == {"added":["bar"], "removed":[],"unchanged":["foo"]}
+        assert r.json() == {
+            "functions": {"added": ["bar"], "removed": [], "unchanged": ["foo"]},
+            "classes":   {"added": [], "removed": [], "unchanged": []},
+            "variables": {"added": [], "removed": [], "unchanged": []}
+        }
         
